@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ToDoComponent from "./components/ToDoComponent";
 import { addToDo, deleteToDo, getAllToDo, updateToDo } from "./utils/HandlerApi";
+import { Box, Container } from "@mui/material";
 
 function App() {
 	const [toDo, setToDo] = useState([]);
@@ -19,8 +20,8 @@ function App() {
 	};
 
 	return (
-		<div className="App">
-			<div className="container">
+		<Box>
+			<Container className="container">
 				<h1>To Do App</h1>
 
 				<div className="top">
@@ -35,8 +36,8 @@ function App() {
 						<ToDoComponent key={item._id} text={item.text} updateMode={() => updateMode(item._id, item.text)} deleteToDo={() => deleteToDo(item._id, setToDo)} />
 					))}
 				</div>
-			</div>
-		</div>
+			</Container>
+		</Box>
 	);
 }
 
