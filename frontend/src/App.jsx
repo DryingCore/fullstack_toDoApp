@@ -20,16 +20,16 @@ function App() {
 	};
 
 	return (
-		<Box>
-			<Container>
-				<div className="top">
-					<input type="text" name="" id="" placeholder="Add Task..." value={text} onChange={ev => setText(ev.target.value)} />
-					<div className="add" onClick={isUpdating ? () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) : () => addToDo(text, setText, setToDo)}>
-						{isUpdating ? "Update" : "Add"}
+		<Box sx={{ display: "flex", justifyContent: "center", height: "100vh" }}>
+			<Container sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+				<Card sx={{ width: "50%", backgroundColor: "gray", padding: "20px" }}>
+					{" "}
+					<div className="top">
+						<input type="text" name="" id="" placeholder="Add Task..." value={text} onChange={ev => setText(ev.target.value)} />
+						<div className="add" onClick={isUpdating ? () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) : () => addToDo(text, setText, setToDo)}>
+							{isUpdating ? "Update" : "Add"}
+						</div>
 					</div>
-				</div>
-
-				<Card sx={{width: "50%", backgroundColor: "gray", padding: "20px"}}>
 					<Typography>
 						{toDo.map(item => (
 							<ToDoComponent key={item._id} text={item.text} updateMode={() => updateMode(item._id, item.text)} deleteToDo={() => deleteToDo(item._id, setToDo)} />
